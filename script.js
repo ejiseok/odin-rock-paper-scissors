@@ -55,9 +55,9 @@ function applyScore(gameResult) {
   }
 }
 
-function playRound() {
+function playRound(playerSelection) {
   const computerChoice = getComputerChoice().toLowerCase();
-  const humanChoice = getHumanChoice().toLowerCase();
+  const humanChoice = playerSelection;
 
   const gameResult = decisionResult(computerChoice, humanChoice);
 
@@ -67,11 +67,24 @@ function playRound() {
 }
 
 function playGame() {
-  for (let i = 0; i < 5; i++) {
-    playRound();
-    console.log(`Player: ${humanScore}, Computer: ${computerScore}\n`);
-  }
+  playRound();
 }
+
+const rockBtn = document.querySelector(".rock-btn");
+const paperBtn = document.querySelector(".paper-btn");
+const scissorsBtn = document.querySelector(".scissors-btn");
+
+rockBtn.addEventListener("click", () => {
+  playRound("rock");
+});
+
+paperBtn.addEventListener("click", () => {
+  playRound("paper");
+});
+
+scissorsBtn.addEventListener("click", () => {
+  playRound("scissors");
+});
 
 let humanScore = 0;
 let computerScore = 0;
