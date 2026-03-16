@@ -1,5 +1,5 @@
 function getComputerChoice() {
-  let choice = Math.floor(Math.random() * 2);
+  let choice = Math.floor(Math.random() * 3);
   if (choice == 0) {
     return "rock";
   }
@@ -59,7 +59,7 @@ function playRound() {
   const computerChoice = getComputerChoice().toLowerCase();
   const humanChoice = getHumanChoice().toLowerCase();
 
-  const gameResult = decisionResult(computerChoice, humanChoice, gameResult);
+  const gameResult = decisionResult(computerChoice, humanChoice);
 
   applyScore(gameResult);
 
